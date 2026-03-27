@@ -1,0 +1,60 @@
+/**
+    * @name Vaeon-alt-addon
+    * @version 1.0
+    * @description Alternate opacity style for Vaeon. Simply enable with Vaeon-main.
+    * @author Dar-Krusos
+    * @credits Vibrant Glass by Kaynooo#8080
+    * @credits Ultra by TheCommieAxolotl#0001 (unread notifications)
+    * @credits ServerRings by Gibbu
+    *
+    * @source https://github.com/Kayno0o/vibrant-glass-theme
+    * @source https://github.com/TheCommieAxolotl/BetterDiscord-Stuff/tree/main/Ultra
+    * @source https://discordstyles.github.io/SoftX/ServerRings.css
+**/
+/*
+____   ____                           
+\   \ /   /____    ____  ____   ____  
+ \   Y   /\__  \ _/ __ \/  _ \ /    \ 
+  \     /  / __ \\  ___(  <_> )   |  \
+   \___/  (____  /\___  >____/|___|  /
+               \/     \/           \/ 
+*/
+
+/* HOME PAGE */
+[class*=nowPlayingColumn] /* friend activities base */ {
+    background-color: var(--background-2);
+    border-radius: var(--roundness);
+    box-shadow: var(--elevation-stroke),var(--elevation-high);
+}
+[class*=sidebar_] /* channels strip */ {
+    background-color: var(--background-2) !important;
+    border-radius: var(--roundness)!important;
+    box-shadow: var(--elevation-stroke),var(--elevation-high);
+}
+
+/* MESSAGES */
+[class*=messageListItem] > [class*=message] /* channel messages */ {
+    border-radius: 0 calc(var(--roundness) / 2) calc(var(--roundness) / 2) 0;
+    transition: .25s;
+}
+[class*=user-profile-sidebar] /* direct message profile */ {
+    background-color: var(--background-2);
+}
+[class*=user-profile-sidebar] > [class*=inner] /* direct message profile */ {
+    box-shadow: var(--elevation-high);
+}
+
+/* SERVER PAGE */
+[class*=sidebar] > [class*=container] > [class*=container] > [class*=header] /* disable channel list shadow */ {
+    border-bottom-left-radius: var(--roundness);
+}
+[class*=chat] > [class*=content] > [class*=container] /* members list strip */ {
+    border-radius: var(--roundness);
+    box-shadow: var(--elevation-stroke),var(--elevation-high);
+    background-color: var(--background-2);
+}
+
+/* CLIENT POPOUT */
+[class*=user-profile-popout] /* popout */ {
+    background: var(--background-2);
+}

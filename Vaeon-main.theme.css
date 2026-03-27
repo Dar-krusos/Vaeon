@@ -1,0 +1,1463 @@
+/**
+    * @name Vaeon-main
+    * @version 1.0
+    * @description A minimalist theme designed to be used with a background.
+    * @author Dar-Krusos
+    * @credits Original inspiration | Vibrant Glass by Kaynooo#8080
+    * @credits Unread notifications | Ultra by TheCommieAxolotl#0001
+    * @credits ServerRings by Gibbu
+    *
+    * @source https://github.com/Kayno0o/vibrant-glass-theme
+    * @source https://github.com/TheCommieAxolotl/BetterDiscord-Stuff/tree/main/Ultra
+    * @source https://discordstyles.github.io/SoftX/ServerRings.css
+**/
+/*
+____   ____                           
+\   \ /   /____    ____  ____   ____  
+ \   Y   /\__  \ _/ __ \/  _ \ /    \ 
+  \     /  / __ \\  ___(  <_> )   |  \
+   \___/  (____  /\___  >____/|___|  /
+               \/     \/           \/ 
+*/
+
+/* MAIN VARIABLES */
+:root {
+    --opaque: 0.95;
+    --background-1: rgba(var(--background-color), var(--opacity-1));
+    --background-2: rgba(var(--background-color), var(--opacity-2));
+    --background-3: rgba(var(--background-color), var(--opacity-3));
+    --background-4: rgba(var(--background-color), var(--opaque));
+
+    /* Server Rings variables */
+    --server-unread-colour: rgba(255, 255, 255, 0.5);
+    --server-hover-colour: rgba(255, 255, 255, 0.5);
+    --server-selected-colour: rgba(110, 210, 232, 0.8);
+    --server-spacing: 6px;
+    --server-icon-spacing: 4px;
+    --server-glow-intensity: 0;
+}
+
+/* Server Rings by Gibbu modified by Dar-Krusos */
+[class*=tutorialContainer] [class*=pill] /* home page icon */ {
+    display: none;
+}
+.pill-22lZHo /* direct message unread marker */ {
+    display: none;
+}
+[class*=tree] [class*=scroller] > [aria-label="Servers"] [class*=listItem]:not(:last-child) /* servers */,
+[class*=tree] [class*=scroller] > [aria-label="Servers"] > [class*=wrapper] /* servers */ {
+  margin-bottom: var(--server-spacing);
+}
+[class*=listItem] [class*=svg] foreignObject /* server voice chat status icons */ {
+  border-radius: var(--server-roundness, 50%);
+  -webkit-mask: none !important;
+          mask: none !important;
+}
+[class*=listItem] [class*=pill] /* unread marker areas */ {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(var(--server-size, 48px) + var(--server-icon-spacing));
+  height: calc(var(--server-size, 48px) + var(--server-icon-spacing));
+  overflow: visible;
+  margin-left: -2px;
+}
+[class*=listItem] [class*=pill] [class*=item] /* unread markers */ {
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: var(--server-roundness, 50%);
+    box-shadow: none;
+    transform: none !important;
+    height: 100% !important;
+    width: 100%;
+    margin: 0;
+    transition: var(--transition);
+    transition-property: box-shadow;
+}
+[class*=stack] > [class*=listItem] [class*=pill] [class*=item] /* non-folder unread markers */ {
+    height: 85% !important;
+    width: 85%;
+    margin-left: 8%;
+}
+[class*=wrapper] > [class*=listItem] [class*=pill] [class*=item] /* folder unread markers */ {
+    height: 100% !important;
+    width: 100%;
+}
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 0"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 1"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 2"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 3"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 4"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 5"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 6"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 7"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 8"] {
+  border-color: var(--server-unread-colour);
+  box-shadow: 0 0 calc(var(--server-glow-intensity) * 15px) calc(var(--server-glow-intensity) * 5px) rgb(var(--server-unread-colour), 0.25);
+}
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 9"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 10"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 11"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 12"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 13"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 14"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 15"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 16"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 17"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 18"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 19"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 20"] {
+  border-color: var(--server-hover-colour);
+  box-shadow: 0 0 calc(var(--server-glow-intensity) * 15px) calc(var(--server-glow-intensity) * 5px) rgb(var(--server-hover-colour), 0.25);
+}
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 21"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 22"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 23"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 24"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 25"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 26"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 27"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 28"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 29"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 30"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 31"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 32"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 33"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 34"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 35"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 36"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 37"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 38"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 39"],
+#app-mount [class*=listItem] [class*=pill] span[style*="height: 40"] {
+  transform: scale(1) !important;
+  border-color: var(--server-selected-colour);
+  box-shadow: 0 0 calc(var(--server-glow-intensity) * 15px) calc(var(--server-glow-intensity) * 5px) rgb(var(--server-selected-colour), 0.25);
+}
+[class*=listItem] [class*=blobContainer],
+[class*=listItemWrapper] {
+  transition: var(--transition, 0.15s ease);
+  transition-property: transform;
+}
+[class*=listItem] [class*=blobContainer]:active,
+[class*=listItemWrapper]:active {
+  transform: scale(0.9);
+}
+[id*=folder-items] /* expanded folder */ {
+    height: 100% !important;
+}
+[class*=folder] /* expanded folder icon */,
+[class*=folder]:hover /* expanded folder icon */ {
+    background-color: transparent;
+}
+[class*=closedFolderIconWrapper] {
+    background-color: var(--background-1);
+}
+[class*=folderEndWrapper] /* expanded folder bottom margin */ {
+    margin-bottom: 4px;
+}
+[class*=expandedFolderIconWrapper]:hover {
+    background-color: var(--background-1);
+    border-radius: 24px;
+}
+[id*=folder-items] > [class*=listItem]:first-child /* expanded folder first item*/ {
+    margin-top: 6px;
+}
+
+/* BACKGROUND */
+[class*=app] > [class*=bg] {
+    background: var(--background-url) center / cover no-repeat;    
+    position: fixed;
+    inset: 0;
+    aspect-ratio: 16 / 9;
+}
+[class*=app] > [class*=layers] {
+    background-color: var(--background-2) !important;
+    border-radius: var(--roundness);
+    margin: 50px;
+    backdrop-filter: blur(var(--main-window-blur));
+}
+
+/* MAIN WINDOW */
+[class*=notice] /* notification banners */,
+[class*=bd-notice] /* notification banner and update button */,
+[class*=updateNotice] /* notification banners */ {
+    border-radius: var(--roundness) !important;
+}
+[class*=friendsOnline] /* online count */ {
+    transition: .25s;
+}
+[class*=childWrapper] /* server list item */ {
+    background-color: var(--background-2) !important;
+}
+[class*=circleIconButton] /* server list item */ {
+    background-color: var(--background-1) !important;
+}
+[class*=tooltip] /* server list item hover popout*/ {
+    background-color: var(--background-2) !important;
+    border-radius: calc(var(--roundness)/2);
+}
+[class*=scroller] > [class*=listItem] > [class*=pill] /* discover button hover */ {
+    display: none;
+}
+[aria-label="Channel header"] /* chat title bar */ {
+    background-color: transparent !important;
+    border: none;
+}
+[class*=searchBar] /* searchbars */ {
+    border: none;
+    border-radius: var(--roundness) !important;
+}
+[class*=searchBar] > button /* searchbar type 2 */ {
+    border-radius: var(--roundness) !important;
+}
+[class*=searchBar] > [class*=icon] /* searchbar icon */ {
+    margin-right: 8px;
+}
+[class*=children]::after /* navigation bar shadow */ {
+    display: none;
+}
+
+/* OTHER WINDOWS */
+[role=button] /* button */,
+[class*=root] [class*=button] /* overlay menu button */,
+[class*=focus-rings] /* button focus ring */ {
+    border-radius: var(--roundness) !important;
+}
+[data-mana-component="modal"] /* input form */ {
+    background-color: var(--background-2);
+}
+[class*=control] > div > [class*=wrapper]:not([class*=bd-select-wrapper]) /* input box wrapper */ {
+    border-radius: var(--roundness) !important;
+    background-color: var(--bg-overlay-hover,var(--background-modifier-hover)) !important;
+}
+[class*=input] /* input box */ {
+    border-radius: var(--roundness) !important;
+}
+[class*=fieldWrapper] > div > div > div /* input boxes 2 */ {
+    border-radius: var(--roundness) !important;
+    background-color: var(--bg-overlay-hover,var(--background-modifier-hover)) !important;
+}
+[class*=inputWrapper] /* input containers */ {
+    background-color: var(--bg-overlay-hover,var(--background-modifier-hover)) !important;
+}
+[class*=rootWithShadow], [class*=rootWithShadow] > [class*=flex] /* overlay menu */ {
+    background-color: var(--background-2) !important;
+}
+[class*=notAppAsidePanel] > [class*=layerContainer] > [class*=root] /* server boost main window */ {
+    margin: 50px !important;
+    margin-top: 78px !important;
+}
+[class*=notAppAsidePanel] > [class*=layerContainer] > [class*=root] > [class*=scroller] /* server boost base layer */ {
+    background-color: transparent;
+    border-radius: var(--roundness);
+    margin: 8px 0 0 8px !important;
+    max-height: 98.4%;
+}
+[class*=notAppAsidePanel] > [class*=layerContainer] > [class*=root] > [class*=scroller] [class*=header], /* server boost banner */
+[class*=notAppAsidePanel] > [class*=layerContainer] > [class*=root] > [class*=scroller] [class*=headerWave] /* server boost banner */ {
+    border-radius: calc(var(--roundness) / 1.5) calc(var(--roundness) / 1.5) var(--roundness) var(--roundness);
+}
+[class*=notAppAsidePanel] > [class*=layerContainer] > [class*=root] [class*=innerWrapper] /* boost button */ {
+    background-color: var(--background-4) !important;
+}
+[class*=directoryContainer] {
+    background-color: transparent !important;
+    border-radius: var(--roundness);
+    margin-top: 10px;
+    max-width: 99.9%;
+    max-height: 98.1%;
+}
+[class*=footer] /* footer */ {
+    background-color: transparent;
+}
+:not([aria-label="New Audio Device Detected"]) > div > [class*=footer_] > [class*=footerButton] /* footer button */ {
+    background-color: var(--bg-overlay-selected,var(--background-modifier-selected)) !important;
+}
+[aria-label="Manage Accounts"] [class*=list]:has([class*=accountCard]) {
+    border-radius: var(--roundness);
+}
+[class*=modalContentChild][class*=right] /* server tag menu */,
+[class*=modalContentChild][class*=right] > [class*=container] /* server tag menu */ {
+    background-color: transparent;
+}
+
+/* HOME PAGE */
+[class*=topPill] [class*=item]:hover /* friends list tab names */ {
+    background-color: var(--background-1) !important;
+    border-radius: 6px !important;
+    transition: .25s;
+}
+[class*=topPill] [class*=selected], [class*=topPill] [class*=selected]:hover /* friends list selected tab */ {
+    background-color: var(--interactive-background-selected) !important;
+    border-radius: calc(var(--roundness)) !important;
+    transition: .25s;
+}
+[aria-label="Friends"] /* friends list */,
+[aria-label="Friends"] > * /* friends list */ {
+    background-color: transparent !important;
+    border: none !important;
+}
+[class*=peopleColumn] > [class*=searchBar] [class*=wrapper] /* friends list  */ {
+    background-color: var(--background-1);
+    border: none;
+    border-radius: var(--roundness);
+}
+[class*=peopleListItem] /* friends hover */ {
+    border: none;
+    /* border-radius: calc(var(--roundness)*2) !important; */
+    transition: .25s;
+}
+[class*=nowPlayingColumn] [class*=scroller] /* friend activities separator */ {
+    border: none;
+}
+[class*=nowPlayingColumn] /* friend activities base */ {
+    background-color: transparent;
+}
+[class*=nowPlayingColumn] > [class*=container] /* friend activities layer */,
+[class*=nowPlayingColumn] [class*=emptyCard] /* friend activities items (empty) */,
+[class*=nowPlayingColumn] [class*=itemCard] /* friend activities items */ {
+    background-color: transparent !important;
+}
+[class*=nowPlayingColumn] [class*=itemCard]:hover /* friend activities items hover */ {
+    transition: 1s;
+    background-color: var(--background-1) !important;
+}
+[class*=nowPlayingColumn] [class*=itemCard] * /* friend activities items sections */ {
+    background-color: transparent !important;
+}
+[class*=chat] > [class*=container] /* message requests page header */ {
+    background-color: transparent !important;
+}
+
+/* PINNED MESSAGES POPOUT */
+[aria-label="Pinned Messages"] [class*=messagesPopoutWrap] /* pinned messages popout */,
+[aria-label="Inbox"] > [class*=recentMentionsPopout] /* inbox */ {
+    background-color: var(--blur-background);
+    backdrop-filter: blur(calc(var(--blur) / 2));
+    max-height: 70vh !important;
+    border-radius: var(--roundness);
+}
+[aria-label="Pinned Messages"] [class*=messagesPopoutWrap] > [class*=header] /* pinned messages header*/,
+[class*=recentMentionsPopout] > [class*=header] /* inbox header */ {
+    background-color: var(--header-background);
+}
+[aria-label="Pinned Messages"] [class*=messageGroupWrapper] /* pinned messages */ {
+    background-color: var(--background-1);
+    border-radius: var(--roundness);
+}
+[aria-label="Pinned Messages"] [class*=buttonContainer] /* pinned messages */ {
+    background-color: transparent;
+}
+[aria-label="Pinned Messages"] [class*=buttonContainer]:hover /* pinned messages */ {
+    background-color: var(--highlight);
+    transition: .25s;
+}
+[aria-label="Pinned Messages"] [class*=messageGroupWrapper]:hover /* pinned messages hover */ {
+    background-color: var(--background-2);
+}
+
+/* INBOX */
+[class*=recentMentionsPopout] [class*=header]:nth-child(1) /* top strip */ {
+    margin-bottom: 10px;
+}
+[class*=recentMentionsPopout] [class*=scrollerBase] /* items area */ {
+    padding: 0 14px 0 16px !important;
+}
+[class*=recentMentionsPopout] [class*=collapseButton] /* unread collapse arrow */ {
+    margin-left: 4px;
+}
+[class*=recentMentionsPopout] [class*=channelHeader] /* unread channel header */ {
+    background-color: var(--background-1) !important;
+    border-radius: var(--roundness) var(--roundness) 0 var(--roundness);
+}
+[class*=recentMentionsPopout] [class*=channelHeader] [class*=buttonGroup] /* unread channel item buttons */ {
+    margin-right: 10px;
+}
+[class*=recentMentionsPopout] button /* buttons */ {
+    background-color: var(--background-1) !important;
+    border-radius: var(--roundness);
+}
+[class*=recentMentionsPopout] button:hover /* buttons */ {
+    background-color: var(--background-2) !important;
+}
+[class*=recentMentionsPopout] [class*=channel] > [class*=messages] /* item content */ {
+    margin-left: 16px;
+    background-color: var(--background-1) !important;
+    border-radius: 0 0 calc(var(--roundness) * 2) calc(var(--roundness) * 2);
+}
+[class*=messagesPopoutWrap] /* mentions area */ {
+    background-color: transparent;
+}
+[class*=recentMentionsPopout] [class*=container] /* mentions item */ {
+    padding-right: 0px;
+}
+[class*=messagesPopoutWrap] [class*=messageContainer] /* mentions item content */ {
+    background-color: var(--background-1);
+    border-radius: 0 0 calc(var(--roundness) * 2) calc(var(--roundness) * 2);
+}
+[class*=recentMentionsPopout] [class*=channelHeader]:hover [class*=closeButton] /* mentions item close button unhide */ {
+    display: flex;
+}
+[class*=recentMentionsPopout] [class*=closeButton] /* mentions item close button */ {
+    background-color: transparent;
+    height: 64px;
+    border-radius: 0px;
+    display: none;
+}
+
+/* PROMO PAGES */
+[class*=page] /* background */ {
+    border-radius: var(--roundness);
+}
+[class*=shop] /* shop header and shop window */,
+[class*=pageWrapper] > [class*=page] /* shop header and shop window */ {
+    background-color: transparent;
+    border: none;
+}
+[class*=page] > [class*=divider] /* shop content window divider */{
+    display: none;
+}
+[class*=shopScroll] > [class*=shop] /* shop content area */{
+    border-radius: var(--roundness);
+}
+[class*=headerBar] /* header bar */{
+    background-color: transparent !important;
+}
+[class*=productCardContainer] /* shop product cards */{
+    background-color: transparent;
+    border: none;
+}
+[class*=filterBar] /* filter menu */ {
+    background-color: transparent;
+}
+[class*=themeRow] > [class*=theme]:not([class*=themeToggled]):hover /* category filters */ {
+    background-color: var(--background-1);
+    transition: .25s;
+}
+[class*=themeRow] > [class*=themeToggled] /* category filters */ {
+    background-color: var(--background-2);
+}
+[class*=page] > [class*=container] > [class*=scroller] /* quests content window */ {
+    background-color: transparent;
+}
+[class*=page] > [class*=container] > [class*=scroller] > [class*=container] /* quests banner */,
+[class*=orbsGradient] /* quests banner */ {
+    border-radius: var(--roundness);
+}
+[class*=questTile] /* quests content window */,
+[class*=questTile] > [class*=container] /* quests content window */ {
+    background-color: transparent;
+    border: none;
+}
+
+/* CLIENT AREA */
+[aria-label="User status and settings"] {
+    width: 90%;
+    margin-left: 2.5%;
+    background-color: var(--background-1) !important;
+    border-radius: var(--roundness) !important;
+}
+[aria-label="User status and settings"] > [class*=container] /* panel areas */ {
+    border-radius: var(--roundness) !important;
+}
+[aria-label="User status and settings"] > [class*=container] /* panel areas */,
+[aria-label="User status and settings"] [class*=buttons] /* panel buttons */ {
+    gap: 0;
+}
+[class*=accountPopoutButtonWrapper] /* user area */ {
+    border-radius: var(--roundness);
+}
+[class*=gameActivityToggleButton] /* game activity button */ {
+    margin-right: 0 !important;
+}
+[class*=panels] [class*=activityPanel] /* activity area */ {
+    background-color: var(--background-3);
+    border-radius: var(--roundness);
+}
+[class*=activityPanel] button:hover /* stream activity button */ {
+    border-radius: var(--roundness);
+}
+[aria-label="User area"] [class*=container] > [class*=flex] > [class*=flex] /* voice chat top buttons row */{
+    background-color: var(--background-1) !important;
+    border-radius: var(--roundness);
+}
+[class*=panels] [class*=wrapper] [class*=flex] button /* voice chat top row buttons */,
+[class*=actionButtons] [class*=button] /* voice chat second row buttons */ {
+    border-radius: var(--roundness) !important;
+}
+[class*=panels] > [class*=wrapper] > [class*=container] > [class*=actionButtons] /* voice chat second row buttons */ {
+    padding: 6px;
+}
+[class*=actionButtons] button:hover /* voice chat second row buttons */,
+[class*=panels] > [class*=container] button:hover /* bottom buttons row */ {
+    background: var(--bg-overlay-selected,var(--background-modifier-selected)) !important;
+}
+[aria-label="User area"] > [class*=mask] [class*=wrapper] /* reward popup */,
+[aria-label="User area"] > [class*=mask] [class*=heroAsset] /* reward popup */,
+[aria-label="User area"] > [class*=mask] [class*=content ] > div /* reward popup */ {
+    border-radius: var(--roundness);
+    background-color: transparent;
+}
+
+/* MESSAGES/CHANNELS STRIP */
+[class*=sidebarList] [class*=searchBar] /* sidebar search */ {
+    border: none;
+}
+[class*=quickswitcher] > [class*=input] /* find menu searchbar */ {
+    background-color: rgba(70, 70, 70, 0.2);
+}
+[aria-labelledby*=":r"] [class*=popout] /* add direct message popout */ {
+    background-color: var(--background-3) !important;
+}
+[class*=sidebar]::after {
+    display: none;
+}
+[class*=privateChannels] > [class*=scroller] /* direct messages list */ {
+    background-color: transparent;
+    margin-bottom: 70px;
+}
+[class*=privateChannels] [class*=shyButton] /* direct messages list items */ {
+    border-radius: var(--roundness);
+}
+[class*=privateChannels] [class*=interactive] /* direct messages list items */ {
+    border-radius: var(--roundness);
+    transition: .25s;
+}
+[class*=sidebarList] /* channels strip */ {
+    background-color: transparent;
+    border: none !important;
+    backdrop-filter: none !important;
+}
+[class*=sidebar] > nav /* channel scroll section */ {
+    background-color: transparent !important;
+}
+[aria-label="Channels"] > div > div > [class*=progressContainer] /* boost goal */ {
+    background-color: transparent;
+}
+[aria-label="Channels"] > [class*=containerWithMargin] /* boost goal */ {
+    border: none;
+}
+
+/* CONTEXT MENU */
+[class*=overlayBackground] /* menu background */,
+[role=menu] /* menu */ {
+    border-radius: var(--roundness);
+    background-color: var(--blur-background);
+}
+[role=menu] [class*=item] /* menu items */ {
+    border-radius: var(--roundness);
+    transition: .25s;
+}
+[role=menu]::before /* menu */ {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    height: 100%; width: 100%;
+    backdrop-filter: blur(var(--blur));
+    border-radius: var(--roundness);
+}
+[class*=submenu] > [class*=scroller] /* submenu */ {
+    border-radius: var(--roundness);
+}
+[class*=customItem] [class*=button] /* context menu recents */ {
+    background-color: transparent;
+}
+[class*=colorDanger]:hover /* danger button */ {
+    background-color: #F23F42 !important;
+}
+[class*=colorDanger]:hover > [class*=label] /* danger button text */ {
+    color: white;
+}
+[class*=colorDanger]:hover path /* danger button icon */ {
+    fill: white !important;
+}
+[class*=toast] /* toast notification background */ {
+    border-radius: calc(var(--roundness) / 2);
+    box-shadow: none;
+    top: 15px;
+    right: 30px;
+    color: white;
+}
+
+/* MESSAGES */
+[class*=chat] /* chat area */ {
+    background-color: transparent !important;
+    border: none !important;
+}
+[class*=video] /* stream window */ {
+    background-color: transparent !important;
+}
+[class*=callContainer] /* stream window */ {
+    border-radius: var(--roundness) !important;
+}
+[class*=searchResultsWrap] /* messages search results */ {
+    box-shadow: var(--elevation-stroke),var(--elevation-high);
+    background-color: var(--background-1);
+    border-radius: var(--roundness);
+}
+[class*=messageListItem] > [class*=message] /* channel messages */ {
+    border-radius: calc(var(--roundness) / 2);
+    transition: .25s;
+}
+[class*=messageListItem] > [class*=message]:hover /* channel messages */ {
+    background-color: var(--background-1) !important;
+}
+[class*=form] > [class*=channelTextArea] {
+    box-shadow: 0 0 0 0 hsl(var(--primary-900-hsl)/0.15) ,var(--elevation-high);
+    border-radius: var(--roundness);
+}
+[class*=embedFull] /* embeds */ {
+    background-color: var(--background-2) !important;
+    border-top-right-radius: var(--roundness);
+    border-bottom-right-radius: var(--roundness);
+}
+[class*=pollContainer] /* polls */ {
+    background-color: var(--background-1);
+    border-radius: var(--roundness);
+}
+
+/* MESSAGE AREA */
+[class*=chatGradient] {
+    display: none;
+}
+[class*=channelTextArea] /* message bar */ ,
+[class*=channelTextArea] [class*=scrollableContainer] /* message bar */,
+[class*=formWithLoadedChatInput] > [class*=wrapper] /* follow message bar */ {
+    background-color: var(--background-1) !important;
+    border-radius: var(--roundness);
+}
+[class*=chatContent] [class*=form]::before /* message bar shadow */ {
+    background: none !important;
+}
+[class*=channelTextArea] > [class*=autocomplete] /* autocomplete popup */ {
+    background-color: var(--background-2) !important;
+    backdrop-filter: blur(var(--blur));
+    border-radius: var(--roundness);
+}
+[class*=autocompleteRow] > [class*=base] /* autocomplete item */ {
+    border-radius: var(--roundness);
+}
+[class*=reactions] > [class*=reaction] /* reactions */ {
+    background-color: transparent;
+    border: none;
+}
+[class*=reactions] > [class*=reaction]:hover /* reactions */ {
+    border: none;
+}
+[class*=reactionMe]:hover /* reactions */ {
+    background-color: var(--bg-overlay-selected,var(--background-modifier-selected)) !important;
+}
+[class*=attachedBars] /* reply bar */,
+[class*=replyBar] /* reply bar */ {
+    background-color: transparent !important;
+}
+[aria-label="Expression Picker"] [class*=navButton]:hover /* page button */ {
+    background-color: var(--bg-overlay-hover,var(--background-modifier-hover)) !important;
+}
+[aria-label="Expression Picker"] [class*=navButtonActive], [class*=navButtonActive]:hover /* active page */ {
+    background-color: var(--bg-overlay-selected,var(--background-modifier-selected)) !important;
+}
+[aria-label="Expression Picker"] [class*=container] /* picker searchbar */ {
+    border-radius: var(--roundness);
+}
+[aria-label="Expression Picker"] [class*=header] /* gif page divider */ {
+    box-shadow: none !important;
+}
+[aria-label="Expression Picker"] [class*=categoryList] /* emoji categories list */ {
+    background-color: transparent;
+    border-right: 1px solid grey;
+}
+[aria-label="Expression Picker"] [class*=categorySection] [class*=wrapper] /* emoji category headers */ {
+    border-radius: calc(var(--roundness) / 2);
+}
+[aria-label="Expression Picker"] [class*=categorySection] [class*=wrapper]::after/* emoji category headers */ {
+    display: none;
+}
+[class*=stickerCategoryGeneric], [class*=categoryItemRecentEmoji] /* recent stickers/emojis */ {
+    background-color: transparent;
+}
+[class*=emojiItemSelected] /* hovered emoji */ {
+    background-color: var(--bg-overlay-selected,var(--background-modifier-selected)) !important;
+}
+[class*=inspector] /* emoji preview */ {
+    background-color: transparent;
+}
+[class*=imageDetails] /* image stats */ {
+    background-color: transparent !important;
+}
+.bd-codeblock-language, .bd-codeblock-table>*>* /* codeblock title */ {
+    border: none !important;
+}
+
+/* DIRECT MESSAGE PROFILE */
+[class*=user-profile-sidebar] /* direct message profile */ {
+    border-radius: var(--roundness);
+    background-color: transparent;
+}
+[class*=user-profile-sidebar] > [class*=inner] /* direct message profile */ {
+    border-radius: var(--roundness);
+    /* box-shadow: var(--elevation-high); */
+}
+[class*=user-profile-sidebar] [class*=header] > svg /* direct message profile header */ {
+    border-radius: var(--roundness);
+}
+[class*=user-profile-sidebar] [class*=overlay] /* direct message profile sections */ {
+    background-color: transparent;
+}
+[class*=content] > [class*=panel] > div > footer > button /* direct message profile */ {
+    border-radius: 0 0 var(--roundness) var(--roundness);
+}
+[class*=userPanelOverlayBackground] > [class*=container] /* user id info */ {
+    justify-content: center;
+}
+[class*=profileMutuals] [class*=eyebrow] /* user popouts mutuals header */ {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+[class*=profileMutuals] [class*=compactItemContainer] /* user popouts mutuals */ {
+    width: 100%;
+}
+[class*=profileMutuals] [class*=compactItemContainer] > div:nth-child(3) /* user popouts profile mutuals servers */ {
+    flex: none;
+}
+[class*=profilePanel] [class*=title] /* direct message profile headers */ {
+    justify-content: center;
+}
+[class*=voiceprofilesection-button] /* voice activity channel buttons */ {
+    border-radius: var(--roundness);
+}
+
+/* SERVER PAGE */
+[aria-label='Help'] /* hide help */ {
+	display: none;
+}
+[class*=popover]:has([class*=actionBar]) /* server boost popout */ {
+    background-color: var(--blur-background);
+    backdrop-filter: blur(var(--blur));
+}
+[class*=toolbar] [class*=search] /* searchbar */ {
+    order: 1;
+}
+[id*=popout] [role="listbox"] /* search popout */ {
+    background-color: var(--blur-background);
+    backdrop-filter: blur(var(--blur));
+}
+[class*=iconWrapper][aria-label='Show Member List'], 
+[class*=iconWrapper][aria-label='Hide Member List'],
+[class*=iconWrapper][aria-label='Show User Profile'],
+[class*=iconWrapper][aria-label='Hide User Profile'] {
+	order: 2;
+}
+[class*=chat]:has([class*=searchResultsWrap]) [class*=iconWrapper][aria-label='Show Member List'] /* add gap when search results */, 
+[class*=chat]:has([class*=searchResultsWrap]) [class*=iconWrapper][aria-label='Show User Profile'] {
+	margin-right: calc(24px + var(--spacing));
+}
+[class*=toolbar] [class*=searchBar] /* member list searchbar */ {
+	width: 184px !important;
+}
+[class*=iconWrapper][aria-label='Hide User Profile'] ~ [class*=search] [class*=searchBar] /* direct messages searchbar */ {
+	width: 284px !important;
+}
+[class*=chat]:has([class*=searchResultsWrap]) [class*=searchBar] /* search results searchbar */ {
+	width: 370px !important;
+}
+[class*=searchFilter] /* search filter */ {
+    background-color: var(--highlight) !important;
+    border-radius: var(--roundness) calc(var(--roundness) / 2) calc(var(--roundness) / 2) var(--roundness);
+    padding-left: 4px;
+}
+[class*=searchFilter]:has(+ [class*=searchAnswer]) /* search filter */ {
+    background-color: var(--highlight) !important;
+    border-radius: var(--roundness) 0 0 var(--roundness);
+    padding-left: 4px;
+}
+[class*=searchAnswer] /* search query */ {
+    background-color: var(--highlight) !important;
+    border-radius: 0 var(--roundness) var(--roundness) 0;
+    margin-left: 0px;
+    padding-right: 4px;
+}
+[class*=tag] /* search results filter item */ {
+    border-radius: var(--roundness) !important;
+}
+[id*=popout] > div > [class*=browser] /* title bar threads popout */ {
+    backdrop-filter: blur(var(--blur));
+    background-color: var(--blur-background);
+    max-height: 70vh !important;
+    border-radius: calc(var(--roundness) / 2);
+}
+[id*=popout] > div > [class*=browser] > [class*=header] /* title bar threads popout */ {
+    background-color: var(--header-background);
+}
+[class*=sidebar] > [class*=container] > [class*=container] > [class*=header] /* disable channel list shadow */ {
+    border: none;
+    box-shadow: none;
+}
+[id*=popout]:has(div):has([id*=guild-header-popout]) /* server settings popout */ {
+    background-color: var(--background-1);
+    backdrop-filter: blur(2px);
+    border-radius: var(--roundness);
+}
+[class*=animatedContainer] /* server image */ {
+    border-bottom-left-radius: var(--roundness);
+}
+[class*=content] > [class*=chat] /* channel browser */ {
+    background: none !important;
+    border-radius: var(--roundness) !important;
+}
+[class*=channelRow] /* channel browser items */ {
+    background-color: var(--background-2) !important;
+}
+[class*=addButton][class*=button] /* create channel button */ {
+    background-color: transparent !important;
+}
+[class*=addButton][class*=button]:hover /* create channel button */ {
+    background-color: var(--background-1) !important;
+    border-radius: var(--roundness) !important;
+}
+[class*=modal] > form * /* channel creation menu */ {
+    background-color: var(--background-2) !important;
+}
+[class*=containerDefault] [class*=link] /* channel highlight */ {
+    border-radius: var(--roundness);
+    transition: .25s;
+}
+[class*=containerDefault] [class*=unread] /* channel unread marker */ {
+    background-color: white;
+    box-shadow: 0 0 10px 4px rgb(87, 65, 65);
+    border-radius: 50%;
+    left: 5px;
+    width: 5px;
+    height: 5px;
+    margin-top: -2px;
+}
+.container-1Bj0eq [class*=unread] /* thread channel unread marker */ { /* to do */
+    margin-left: 13px;
+}
+[class*=chatSidebarOpen] > [class*=callContainer] /* voice chat window - text chat open */,
+[class*=channelChatWrapper] > [class*=container] /* voice chat text chat */ {
+    border-radius: 0 !important;
+}
+[class*=typeThread] [class*=link] /* thread highlight */ {
+    --thread-displacement: 12px;
+    margin-left: var(--thread-displacement);
+}
+[class*=typeThread] [class*=name] /* thread name */ {
+    left: calc(-1 * var(--thread-displacement));
+}
+[class*=linkTop] /* channel names */,
+[class*=spine] /* thread indicator */ {
+    margin-left: 12px;
+}
+[id*=popout]:has([class*=didRender]) [class*=popout_] /* channel list threads popout */,
+[id*=popout]:has([class*=didRender]) [class*=popout_] > [class*=row] /* channel list threads popout item */ {
+    border-radius: var(--roundness);
+}
+[class*=didRender] > [class*=container] /* voice channel activity popout */ {
+    border-radius: var(--roundness);
+}
+[class*=streamPreview] /* stream preview */ {
+    border-radius: var(--roundness);
+}
+#lazyLoader .channel /* lazy loader channel name */ {
+    background-color: var(--background-2);
+    border-radius: var(--roundness);
+}
+#lazyLoader [class*=button] /* lazy loader buttons */ {
+    border-radius: calc(var(--roundness) * 2.5);
+}
+#lazyLoader [class*=button]:nth-child(2) /* lazy loader load messages button */ {
+    background-color: var(--background-1);
+    border: none;
+}
+#lazyLoader [class*=button]:nth-child(2):hover /* lazy loader load messages button hover */ {
+    background-color: var(--background-2);
+}
+#lazyLoader .stats /* lazy loader channel stats */ {
+    background-color: transparent !important;
+    border-radius: var(--roundness);
+}
+[class*=voiceUser] [class*=content]:hover /* voice chat user hover */ {
+    border-radius: var(--roundness);
+}
+.topSectionSpotify-1lI0-P /* big profile playing spotify */ { /* to do */
+    background-color: var(--text-positive-opacity) !important;
+}
+.changeButton-3QdaoH /* change stream button */ { /* to do */
+    background-color: var(--background-2) !important;
+}
+[class*=followButton] > button /* follow channel button */ {
+    background-color: var(--background-2) !important;
+}
+[class*=followButton] > button:hover /* follow channel button */ {
+    background-color: rgba(185, 185, 185, 0.3) !important;
+}
+[aria-label="Create Post"] [class*=channelTextAreaInner] /* support page new post message box */ {
+    margin: 10px 35px 0 -10px;
+}
+[aria-label="Create Post"] [class*=inner] /* support page new post message input area */ {
+    padding: 10px;
+}
+.matchingPostsRow-2IiEQ1 {
+    background-color: transparent !important;
+    margin-top: 5px;
+    display: inline;
+}
+[class*=base] > [class*=content] > [class*=container] /* thread background */ {
+    border-radius: 0;
+}
+[aria-label="Create Thread"] > [class*=container], [aria-label="Thread header"] /* thread title bar */ {
+    background-color: transparent !important;
+}
+[class*=chat]::before /* thread content top shadow */ {
+    display: none;
+}
+[aria-label="Create Thread"] [class*=formSection] [class*=input] /* thread creator thread name input */ {
+    background-color: var(--background-1);
+}
+[class*=chat] [class*=header] /* channel browser header */ {
+    border: none;
+}
+[class*=chat] [class*=pageBody] /* channel browser content area */ {
+    background-color: transparent;
+}
+[class*=chat] [class*=pageBody] > [class*=header] [class*=wrapper] /* channel browser searchbar */ {
+    background-color: var(--background-1) !important;
+    border: none;
+}
+[class*=chat] [class*=pageBody] > [class*=header] [class*=wrapper]:has(input:focus) /* channel browser searchbar */ {
+    outline: none;
+}
+
+/* SERVER MEMBERS LIST */
+[class*=chat] > [class*=content] > [class*=container] /* members list strip */ {
+    background-color: transparent;
+    border: none;
+}
+[class*=membersWrap] [class*=members] /* members list */,
+[class*=membersWrap] [class*=member] /* members list item */ {
+    background-color: transparent;
+}
+[class*=member] > [class*=childContainer] /* members list item */ {
+    border-radius: var(--roundness);
+    transition: .25s;
+}
+[class*=membersGroup] /* members list role categories */ {
+    text-align: center;
+}
+.VoiceActivity-voiceicon-icon /* voice activity */,
+[class*=templatesList] [class*=container] /* server creation menu item */ {
+    background-color: transparent;
+}
+[class*=templatesList] [class*=container] * /* all server creation menu elements */ {
+    color: white;
+}
+[class*=templatesList] + [class*=footer] * /* all server creation menu elements */ {
+    color: white;
+}
+[class*=inviteRow] /* invite row */,
+[class*=copyInput] [type="button"] /* invite link input */ {
+    border-radius: var(--roundness);
+}
+.rowContainer-3t7486 {
+    background-color: var(--primary-600);
+}
+[class*=pageWrapper] /* discover page */ {
+    background-color: transparent !important;
+}
+
+/* USER PROFILE AND POPOUT */
+.timezone-badge /* timezone badge */ {
+    border-radius: var(--roundness);
+}
+.affinity-container /* affinity score */ {
+    font-size: 70%;
+}
+.affinity-label /* "affinity score" text */ {
+    font-weight: 1;
+}
+
+/* CLIENT POPOUT */
+[class*=user-profile-popout] /* popout */ {
+    margin-left: 17px;
+    border-radius: calc(var(--roundness)*1.5) calc(var(--roundness)*1.5) var(--roundness) var(--roundness);
+    background: none;
+    box-shadow: none;
+    --profile-gradient-overlay-color: transparent !important;
+    backdrop-filter: blur(var(--blur));
+}
+[class*=user-profile-popout] [class*=header] > [class*=container] /* popout header */ {
+    --custom-status-bubble-background-color: var(--background-1);
+}
+[class*=user-profile-popout] [class*=header] svg /* popout header */ {
+    border-radius: calc(var(--roundness)*1.5) calc(var(--roundness)*1.5) var(--roundness) var(--roundness);
+}
+[class*=user-profile-popout] [class*=username] /* display and username container */ {
+    justify-items: center;
+}
+[class*=user-profile-popout] [class*=usernameRow] /* display name */ {
+    margin-left: 26px;
+}
+[class*=user-profile-popout] [class*=scrollerBase] > div:nth-child(2) /* description */ {
+    text-align: center;
+}
+[class*=user-profile-popout] [class*=scrollerBase] [class*=overlay] /* section backgrounds */ {
+    background-color: var(--background-1);
+}
+[class*=user-profile-popout] [class*=scrollerBase] [class*=overlay]:not([class*=card]) /* section backgrounds */ {
+    border-radius: var(--roundness);
+}
+
+/* USER POPOUT */
+[class*=userPopoutOuter] /* popout border */ {
+    background: none;
+    box-shadow: none;
+    --profile-gradient-overlay-color: transparent !important;
+    padding: 0 !important;
+}
+[class*=userPopoutOuter]::before /* menu */ {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    height: 100%; width: 100%;
+    background-color: var(--profile-gradient-overlay-color);
+    backdrop-filter: blur(2px);
+}
+div:not([class*=accountProfilePopoutWrapper]) > div > div > div > [class*=userPopoutInner] /* popout background */ {
+    background-color: var(--background-3);
+}
+[class*=profileEffects] > [class*=inner] /* profile effects */ {
+    border-radius: var(--roundness);
+}
+[class*=bannerSVGWrapper] /* banner area */,
+[class*=profileBadges] /* badges area */ {
+    border-radius: var(--roundness);
+}
+[class*=userProfileOuterThemed] [class*=avatarPositionPremium] /* profile picture - themed profile */ {
+    top: 71px;
+    left: 18px;
+}
+div:not([class*=accountProfilePopoutWrapper]) > div > div > div > div > [class*=avatarPositionPremiumNoBanner] /* (exclude client profile) profile picture */ {
+    top: 42px;
+}
+[class*=avatarHoverTarget] svg /* profile picture */ {
+    width: 93px;
+    height: 93px;
+}
+[class*=userPopoutOverlayBackground] {
+    background-color: transparent !important;
+}
+[class*=userPopoutInner] .affinity-container /* affinity plugin score */ {
+    margin-top: 11px;
+}
+[class*=aboutMeGuildIcon] /* 'about me' guild icon */ {
+    display: inline-block;
+    margin-left: 10px;
+}
+.activity-3uaYny .button-ejjZWC /* activity buttons */ {
+    background-color: var(--background-2);
+}
+[class*=userPopoutInner] .controls /* activity buttons */ {
+    border-radius: var(--roundness) !important;
+    padding-left: calc(var(--roundness) * 0.75) !important;
+    padding-right: calc(var(--roundness) * 0.75) !important;
+}
+[class*=actionsUserPopoutV2] > button /* more activity buttons */ {
+    background-color: var(--background-1);
+    border-radius: var(--roundness);
+}
+[class*=userPopoutInner] [class*=roles] > [class*=role] /* roles */ {
+    transform: translate(0);
+    position: relative;
+    overflow: hidden;
+    border: 0;
+    border-radius: var(--roundness);
+    background-color: transparent;
+}
+[class*=userPopoutInner] [class*=roleRemoveIcon] /* role remove button */ {
+    margin: 0;
+    left: unset;
+    transform: translate(50%,-50%);
+}
+[class*=userPopoutInner] [class*=roleCircle] /* role circles */ {
+    width: 0px;
+}
+[class*=userPopoutInner] [class*=roleCircle]:before /* role circles */ {
+    content: '';
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: inherit;
+    opacity: 0.4;
+}
+[class*=userPopoutInner] [class*=roleRemoveButton] {
+    position: static;
+}
+[class*=userPopoutInner] [class*=roleRemoveButton]:hover /* role remove button */ {
+    background-color: rgba(255, 0, 0, 0.6);
+    box-shadow: 0 0 20px 8px red;
+}
+[class*=userPopoutInner] [class*=roleRemoveIcon] /* role remove icon */ {
+    width: 0;
+}
+[class*=userPopoutInner] [class*=role] [class*=addButton_]:hover /* role add button */ {
+    background-color: var(--background-1);
+}
+[class*=note] > [class*=input]:focus /* note input area */ {
+    background-color: transparent !important;
+}
+[class*=userPopoutInner] [class*=messageInputContainer] /* popout message bar */ {
+    background-color: var(--background-2);
+    border: none;
+    border-radius: var(--roundness);
+}
+/* CENTERING */
+.text-lg-semibold-UQkeZc {
+    margin-left: 8px;
+    text-align: center;
+}
+.affinity-container /* affinity plugin score */,
+.scroller-15bIdk .section-28YDOf:nth-child(2) .title-3CjiSS,
+[class*=activityUserPopout] [class*=headerContainer] /* activity title */,
+[class*=activityUserPopout] .content-tXPNDw /* activity text */,
+[class*=userPopoutInner] [class*=title] /* headers */ {
+    display: block;
+    text-align: center;
+}
+[class*=usernameSection] /* user ID */,
+[class*=customStatus] /* custom status */,
+[class*=voiceprofilesection-body] /* voice activity */,
+[class*=roles] /* roles */ {
+    display: flex;
+    justify-content: center;
+}
+
+/* USER PROFILE */
+[class*=root]:has([class*=user-profile-modal]) {
+    background-color: transparent;
+    border-radius: calc(var(--roundness) * 2) !important;
+}
+[class*=user-profile-modal] /* profile window */ {
+    background-color: var(--background-1);
+    border-radius: calc(var(--roundness) * 2) !important;
+}
+[class*=user-profile-modal] > [class*=inner] /* profile window */ {
+    border-radius: calc(var(--roundness) * 2) !important;
+}
+[class*=user-profile-modal-v2] /* profile window */ {
+    width: 1440px;
+    height: 960px;
+    background-color: var(--background-2);
+    border-radius: calc(var(--roundness) * 2) !important;
+}
+[class*=modalCloseButton] /* close button */ {
+    margin: calc(var(--roundness) / 2);
+}
+[class*=profile__] /* profile card */ {
+    background-color: transparent;
+}
+[class*=profile__] [class*=banner] /* banner */ {
+    border-radius: var(--roundness);
+}
+[class*=userProfileModalOuter] [class*=pencilContainer] /* edit profile button */ {
+    top: 2px !important;
+    right: 2px !important;
+    scale: 50%;
+}
+[aria-label="Board"] section {
+    border: grey 1px;
+}
+[aria-label="Board"] section [class*=container] {
+    background-color: transparent;
+}
+[id="activity-tab"] [class*=card] /* activity list */ {
+    background-color: transparent;
+}
+[id="activity-tab"] [class*=tabPanelScroller] [class*=headings] /* activity list headers */,
+[id="activity-tab"] [class*=tabPanelScroller] [class*=card] > [class*=header_] /* activity list card headers */ {
+    align-self: center;
+}
+
+/* SETTINGS MENUS */
+[class*=noticeRegion] > [class*=container] /* warning notice */ {
+    background-color: var(--highlight);
+}
+[class*=outerContainer] > [class*=container] {
+    background-color: var(--background-2);
+}
+[class*=modalContentInner] > [class*=container] > [class*=content] /* content */,
+[class*=contentHeader] /* content header */,
+[class*=accountProfileCard] /* profile card */,
+[class*=accountProfileCard] [class*=background] /* profile card fields container */,
+[class*=accountProfileCard] [class*=background] [class*=fieldList] /* profile card fields */ {
+    background-color: transparent !important;
+}
+[class*=accountProfileCard] {
+    border-radius: calc(var(--roundness) * 2.5);
+}
+
+/* BD ELEMENTS */
+.bd-error-modal {
+    background-color: var(--background-2);
+    border: none;
+    border-radius: var(--roundness);
+}
+.bd-addon-error {
+    border: none;
+}
+.bd-modal-small {
+    background-color: var(--background-3);
+    border: none;
+    border-radius: var(--roundness);
+}
+.bd-modal-small .bd-button {
+    border-radius: var(--roundness);
+}
+.bd-search-wrapper /* BD search box */,
+.bd-button-title /* BD open folder buttons */ {
+    border-radius: var(--roundness);
+    background-color: var(--background-mod-subtle);
+}
+.bd-store-card /* BD open store card */ {
+    border-radius: calc(var(--roundness)*2);
+    background-color: var(--background-2);
+}
+.bd-addon-card /* BD plugin/theme card */ {
+    border-radius: var(--roundness) !important;
+    border-radius: calc(var(--roundness) * 2.5) !important;
+}
+.bd-addon-button:nth-child(1) /* BD plugin/theme settings */ {
+    border-radius: var(--roundness) 0 0 var(--roundness) !important;
+}
+:not(.bd-modal-small) > :not(.bd-addon-store-card-actions) > .bd-button-color-red /* BD plugin/theme settings red button (excl. plugin store) */ {
+    border-radius: 0 var(--roundness) var(--roundness) 0 !important;
+}
+.bd-modal-footer .bd-button-color-primary /* BD update button */ {
+    background-color: var(--background-1);
+    border-radius: var(--roundness) 0 0 var(--roundness) !important;
+}
+.bd-addon-store-card /* BD server addon store card */ {
+    background-color: var(--background-1) !important;
+    border-radius: calc(var(--roundness) / 2);
+}
+.content-1OG56Q input, .value-2en4z7 /* timestamp picker text bg */ {
+    background-color: transparent !important;
+}
+
+/* DISCORD SETTINGS PAGE */
+[class*=container]:has([aria-label="User Settings"]) /* settings window */ {
+    border: none;
+}
+[role="tab"][class*=vertical][aria-selected="true"] {
+    border: none;
+}
+[aria-label="Family Center"] [class*=box] {
+    background-color: transparent;
+    border: none;
+}
+[class*=container]:has([aria-label="User Settings"]) [class*=switchIndicator] /* switch button */ {
+    background-color: var(--background-mod-subtle) !important;
+    border: none !important;
+}
+[class*=container]:has([aria-label="User Settings"]) [class*=switchIndicator]:has(svg[style*="left: 24px;"]) /* switch button */ {
+    background-color: var(--highlight) !important;
+}
+[class*=headingCard] {
+    background-color: var(--highlight) !important;
+    border: none;
+}
+[class*=selectField][class*=isFocused] /* dropdown field */ {
+    outline: none !important;
+}
+[class*=header_fedacc] {
+    background-color: transparent;
+    border-radius: calc(var(--roundness) * 2);
+}
+[class*=paymentPane] {
+    background-color: transparent;
+    border: none;
+}
+[class*=paymentPane] [class*=payment_]:hover {
+    background-color: transparent;
+}
+[class*=paymentPane] [class*=summaryInfo] {
+    border-radius: calc(var(--roundness) * 2);
+}
+[class*=cameraWrapper] {
+    background-color: var(--background-1);
+    border: none;
+    border-radius: var(--roundness);
+}
+[class*=systemServiceUpsell] {
+    background-color: var(--background-2);
+    border-radius: var(--roundness);
+}
+[class*=defaultKeybindGroup] {
+    background-color: transparent;
+    border: none;
+}
+[class*=myServersContainer] [class*=headerContainer] {
+    background-color: transparent;
+}
+[class*=myServersContainer] [class*=headerContainer] [class*=wrapper] {
+    outline: none !important;
+    border: 1px solid var(--input-border-default) !important;
+}
+[class*=activeGame] {
+    background-color: var(--background-mod-normal);
+}
+[data-nav-anchor-key*="overlay"] [class*=collapseable],
+[data-nav-anchor-key*="overlay"] [class*=groupContainer] {
+    background-color: transparent !important;
+    border: none;
+}
+
+/* SERVER SETTINGS PAGE */
+[data-layer="GUILD_SETTINGS"] /* server settings window */,
+[data-layer="GUILD_SETTINGS"] [class*=standardSidebarView],
+[data-layer="GUILD_SETTINGS"] [class*=sidebarRegionScroller],
+[data-layer="GUILD_SETTINGS"] [class*=contentRegion] {
+    background: none;
+}
+[role="tab"][class*=vertical] /* settings categories */ {
+    border-radius: var(--roundness);
+}
+[role="tab"][class*=vertical][aria-selected="true"] /* settings categories */ {
+    background-color: var(--highlight) !important;
+}
+[class*=profilePreview_] /* profile preview */ {
+    background-color: var(--background-1);
+}
+[class*=profilePreview_] > [class*=banner] /* profile preview banner */ {
+    border-radius: var(--roundness);
+}
+[data-layer="GUILD_SETTINGS"] [class*=button][role=button] /* buttons */ {
+    background-color: var(--background-1);
+}
+[class*=iconInput]:hover > [role*=button] /* change icon button */,
+[data-layer="GUILD_SETTINGS"] [class*=button][role=button]:hover /* buttons */ {
+    background-color: var(--background-2);
+}
+[class*=grid] [class*=itemSelected] /* selected grid item */ {
+    border: 1px solid var(--highlight);
+    border-radius: var(--roundness);
+}
+[data-layer="GUILD_SETTINGS"] [class*=wrapper]:has(input:focus) /* input boxes */,
+[data-layer="GUILD_SETTINGS"] [class*=wrapper]:has(textarea:focus) /* input boxes */ {
+    outline: none;
+    border: 1px solid var(--input-border-default);
+}
+[class*=selectDropdown] /* dropdown menu */ {
+    background-color: var(--background-4);
+    border-radius: var(--roundness);
+}
+[class*=selectDropdown] [role=option] /* dropdown menu */ {
+    border-radius: var(--roundness);
+    outline: none !important;
+}
+[class*=expressiveRive] /* boost button */ {
+    border-radius: var(--roundness) !important;
+}
+[id="tag-tab"] [class*=sidebarContainer] > [class*=container] /* tag preview */ {
+    background-color: transparent;
+}
+[data-layer="GUILD_SETTINGS"] [class*=switchIndicator] /* switch button */ {
+    border: none !important;
+}
+[data-layer="GUILD_SETTINGS"] [class*=switchIndicator]:has(svg[style*="left: 24px;"]) /* switch button */ {
+    background-color: var(--background-2) !important;
+}
+[class*=imageUploaderInner] /* image uploader */ {
+    background-color: var(--background-1);
+}
+[class*=imageUploaderInner]:hover /* image uploader */ {
+    background-color: var(--background-2);
+}
+[class*=tierHeaderWithoutCardBody] /* sticker slots card header */,
+[class*=tierBody] /* sticker card body */ {
+    background-color: transparent;
+    border: none;
+}
+[class*=mainTableContainer] /* members table */ {
+    background-color: var(--background-1);
+}
+[class*=roleContainer] [class*=role] {
+    border-radius: var(--roundness);
+}
+[class*=infobox] ~ [class*=container] {
+    background-color: var(--background-1);
+}
+[class*=titleContainer],
+[class*=contentContainer] [class*=header] {
+    background-color: transparent;
+}
+[class*=joinOptions] /* access tab join options card */ {
+    background-color: transparent;
+    border: none;
+}
+[class*=joinOptionTab] /* access tab join options */,
+[class*=joinOptionContent] /* access tab join options */ {
+    border-radius: var(--roundness);
+}
+[class*=joinOptionTab]:hover /* access tab join options */ {
+    background-color: var(--background-1) !important;
+}
+[id*=access-tab] [class*=rules_] /* rules card */ {
+    background-color: var(--background-2);
+    border-radius: var(--roundness);
+}
+[id*=integrations-tab] [class*=card] {
+    background-color: var(--background-1);
+    border: none;
+    border-radius: var(--roundness);
+}
+[class*=setupContainer] > [class*=groupContainer],
+[class*=setupContainer] [class*=groupHeaderRow] {
+    background-color: transparent;
+}
+[class*=setupContainer] [class*=backgroundModifierContainer] {
+    background-color: var(--background-1);
+    border: none;
+    border-radius: var(--roundness);
+}
+[class*=setupContainer] [class*=backgroundModifierContainer]:has([class*=settingsDescriptionContainer]:hover) {
+    background-color: var(--background-2);
+}
+[class*=setupContainer] [class*=groupContainer]:has(div:focus) /* moderation tab options list */ {
+    background-color: transparent;
+}
+[id*=moderation-tab] [class*=groupCollapsedRow] /* moderation tab options */ {
+    background-color: transparent;
+}
+[id*=moderation-tab] [class*=backgroundModifierContainer] {
+    background-color: var(--background-1);
+}
+[id*=moderation-tab] [class*=groupHeaderRow]:hover [class*=backgroundModifierContainer],
+[id*=moderation-tab] [class*=groupCollapsedRow]:hover [class*=backgroundModifierContainer] {
+    background-color: var(--background-2);
+}
+[class*=auditLog] /* audit log items */ {
+    background-color: var(--background-1);
+    border: none;
+    border-radius: var(--roundness);
+}
+[id*=bans-tab] [class*=scrollerContainer] /* bans card */ {
+    background-color: transparent;
+    border: none;
+}
+[id*=guild_automod-tab] [class*=editCard] /* automod rule cards */ {
+    background-color: var(--background-1);
+    border: none;
+}
+[class*=featureCard] /* community feature cards */ {
+    background-color: var(--background-1);
+    border-radius: var(--roundness);
+}
+[id*=guild_templates-tab] [class*=descriptionBox] {
+    background-color: transparent;
+}
