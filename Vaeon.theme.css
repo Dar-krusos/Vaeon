@@ -1,0 +1,48 @@
+/**
+    * @name Vaeon
+    * @version 1.0
+    * @description A minimalist theme designed to be used with a background.
+    * @author Dar-Krusos
+    * @credits Original inspiration | Vibrant Glass by Kaynooo#8080
+    * @credits Unread notifications | Ultra by TheCommieAxolotl#0001
+    * @credits ServerRings by Gibbu
+    *
+    * @source https://github.com/Kayno0o/vibrant-glass-theme
+    * @source https://github.com/TheCommieAxolotl/BetterDiscord-Stuff/tree/main/Ultra
+    * @source https://discordstyles.github.io/SoftX/ServerRings.css
+**/
+/*
+____   ____                           
+\   \ /   /____    ____  ____   ____  
+ \   Y   /\__  \ _/ __ \/  _ \ /    \ 
+  \     /  / __ \\  ___(  <_> )   |  \
+   \___/  (____  /\___  >____/|___|  /
+               \/     \/           \/ 
+*/
+
+@import url('https://dar-krusos.github.io/Vaeon/Vaeon-main.theme.css');
+
+:root {
+    --background-url: url("https://your.image/here.png");
+    
+    /* Background options: transparent, --background-1, --background-2, --background-3 */
+    --header-background: transparent;
+    --blur-background: var(--background-1);
+
+    --blur: 10px;
+    --main-window-blur: 0px;
+
+    --background-color: 0, 0, 0;
+    --opacity-1: 0.2; /* for --background-1 */
+    --opacity-2: 0.5; /* for --background-2 */
+    --opacity-3: 0.75; /* for --background-3 */
+    --roundness: 20px;
+    --roundness-outer: 23px;
+    --highlight: rgba(185, 185, 185, 0.3);
+}
+
+[class*=winButton] /* WINDOW BUTTONS X O - */ {
+    display: none; /* comment this line to re-enable the window buttons */
+}
+
+/* Place any specific changes here. Requires basic css knowledge. */
