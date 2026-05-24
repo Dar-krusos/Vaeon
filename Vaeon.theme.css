@@ -26,6 +26,10 @@ ____   ____
 :root {
     --background-url: url("https://your.image/here.png");
     
+    /* change these if your desktop setup offsets/pushes your desktop background around, e.g. having top/left taskbar, bigger taskbar, etc. */
+    --background-top-offset: -20px;
+    --background-left-offset: 0px;
+    
     /* Background options: transparent, --background-1, --background-2, --background-3 */
     --header-background: transparent;
     --blur-background: var(--background-1);

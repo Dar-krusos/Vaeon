@@ -167,10 +167,12 @@ ____   ____
 
 /* BACKGROUND */
 [class*=app] > [class*=bg] {
-    background: var(--background-url) center / cover no-repeat;    
+    background: var(--background-url) center / cover no-repeat;
     position: fixed;
     inset: 0;
     aspect-ratio: 16 / 9;
+    top: var(--background-top-offset);
+    left: var(--background-left-offset);
 }
 [class*=app] > [class*=layers] {
     background-color: var(--background-2) !important;
